@@ -1,0 +1,52 @@
+<app-header></app-header>
+<div class="row col-md-12 m-0">
+  <div class="col-md-4 br-gray">
+    <div class="d-header">
+      To Do List
+    </div>
+    <div class="p-3">
+      <div *ngFor="let list of toDoList; index as i" class="mb-3 h-icons">
+        <div class="card d-card">
+          <span class="card-body" *ngIf="list.isNew || list.isEdit">
+            <input type="radio" name="list{{i}}" (click)="selectedList(list,i)" class="mr-10px">
+            <input class="form-control" placeholder="Start Typing" name="listN{{i}}" [(ngModel)]="list.title" (keyup.enter)="addToDoList(list)">
+          </span>
+          <span class="card-body" *ngIf="!list.isNew && !list.isEdit">
+            <input type="radio" name="list{{i}}" (click)="selectedList(list,i)" class="mr-10px">
+            {{list.title}}
+            <span class="icons">
+              <a class="edit" title="Edit" data-toggle="tooltip" (click)="editList(list)"><i class="material-icons">&#xE254;</i></a>
+              <a class="delete" title="Delete" (click)="removeList(list,i)" data-toggle="tooltip"><i
+                  class="material-icons">&#xE872;</i></a>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 br-gray hidden-mobile">
+    <div class="d-header">
+      Done
+    </div>
+    <div class="p-3">
+      <div *ngFor="let list of completedList; index as i" class="mb-3">
+        <div class="card d-card">
+          <span class="mr-10px d-flex">
+            <i class="material-icons">check_circle_outline</i>
+          </span>
+          <span class="card-body">
+            <i class="bi bi-check"></i>
+            <i class="fa fa-check"></i>
+            {{list.title}}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 p-0">
+    <div class="d-header"><span class="v-hidden">hidden header</span></div>
+  </div>
+</div>
+<div class="add-icon" (click)="addList()">
+  <i class="material-icons">add_circle_outline</i>
+</div>

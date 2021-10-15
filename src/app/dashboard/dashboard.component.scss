@@ -1,0 +1,53 @@
+.br-gray {
+  border-right: 1px solid#CCCCCC;
+  padding: 0;
+}
+.d-header {
+  font-size: 25px;
+  font-weight: 600;
+  padding: 15px;
+  border-bottom: 1px solid#CCCCCC;
+}
+.v-hidden {
+  visibility: hidden;
+}
+.d-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px;
+  box-shadow: 0px 3px 6px #00000040;
+  height: 65px;
+}
+.card-body {
+  padding: 0;
+  align-items: center;
+  display: flex;
+}
+.icons {
+  margin-left: auto;
+  white-space: nowrap;
+  display: none;
+}
+.mr-10px {
+  margin-right: 10px;
+}
+.h-icons:hover .icons {
+    display: block;
+}
+.add-icon {
+  position: fixed;
+  right: 15px;
+  bottom: 10px;
+}
+.float-left {
+  float: left;
+}
+.margin-right {
+  margin: 0 20px 0 20px;
+}
+@media (max-width: 767px) {
+  .hidden-mobile {
+    display: none;
+  }
+}
